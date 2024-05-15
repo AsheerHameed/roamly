@@ -1,6 +1,15 @@
 //color schemes
-$primary-color:#de503a;
-$secondary-color:#ffffff;
-$dark-gray:#212529;
-$light-gray:#f3f4f5;
+$primary-color:#f75940;
 
+$secondary-color:#ffffff;
+$dark-gray:#2c365d;
+$light-gray:#6c757d;
+$lightest-gray:#f3f4f5;
+
+//font style
+$primary-font :  'Source Sans 3', sans-serif;
+
+//button styles
+$secondary-button-bg-color:#feefed;
+$secondary-button-text-color:$primary-color;
+$disabled-color:#de503a;

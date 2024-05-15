@@ -1,0 +1,11 @@
+.mat-mdc-form-field{
+  min-height: 10px;
+}
+.input-textbox{
+  .mat-mdc-form-field-subscript-wrapper{
+    display: none;
+  }
+}
+.mdc-text-field--outlined {
+  --mdc-outlined-text-field-container-shape: 14px !important;
+}
