@@ -1,7 +1,7 @@
-
-@mixin  roamly-primary-button($width: 56px, $height: 56px){
+@import './mediaquerymanager.scss';
+@mixin roamly-primary-button($width: 36px, $height: 56px){
   border-radius: 100px;
-  min-height: $height;
+  height: $height;
   min-width: $width;
   padding: 12px 24px;
   background-color: $primary-color;
@@ -16,12 +16,18 @@
   &:hover {
     background-color: $disabled-color;
   }
+
+  @include breakpoint-max(550px){
+    height: 34px;
+    /* min-width: 36px; */
+    padding: 4px 12px;
+  }
 }
 
-@mixin roamly-secondary-button{
+@mixin roamly-secondary-button($width: 36px, $height: 56px){
   border-radius: 100px;
-  min-height: 56px;
-  min-width: 56px;
+  height: $height;
+  min-width: $width;
   padding:12px 24px;
   background-color:$secondary-button-bg-color;
   border: none;
@@ -33,6 +39,12 @@
   cursor: pointer;
   &:hover{
     background-color: #fbaca0;
+  }
+
+  @include breakpoint-max(550px){
+    height: 34px;
+    /* min-width: 36px; */
+    padding: 4px 12px;
   }
 }
 

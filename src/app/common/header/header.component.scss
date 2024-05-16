@@ -5,7 +5,9 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  // border-bottom: 2px solid #ccc;
+  @include breakpoint-max(550px){
+    padding: 2rem;
+  }
 }
 .header-left{
   display: flex;
@@ -40,7 +42,36 @@ ul{
       border-bottom:4px solid $primary-color;
     }
   }
+  @include breakpoint-max(768px){
+    display: none;
+  }
 }
 
 }
+}
+.header-right{
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  .input-textbox{
+    @include breakpoint-max(550px){
+      display: none;
+    }
+  }
+  &-cta{
+    display: flex;
+    gap: 10px;
+    &-login{
+      button{
+        @include roamly-primary-button(36,46);
+    }
+    }
+    &-signup{
+      button{
+        @include roamly-secondary-button(36,46);
+      }
+    }
+  }
+
 }
