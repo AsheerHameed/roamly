@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { RoamlyModule } from '../common/roamly.module';
+import { LandingModule } from '../modules/landing/landing.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +13,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RoamlyModule,
+    LandingModule
   ],
   providers: [
     provideAnimationsAsync()

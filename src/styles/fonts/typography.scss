@@ -1,48 +1,68 @@
 /* Headings */
 @import '../abstracts/variables.scss';
+@import '../abstracts/mixins/mediaquerymanager.scss';
 .heading-primary {
-  font-size: 2.5rem;
+  font-size: 3.6rem;
   font-weight: 700;
+  line-height: 1;
   color:$dark-gray;
+
+   @include breakpoint-max(768px) {
+    font-size: 3.6rem;
+    line-height: 1;
+  }
 }
 
 .heading-secondary {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color:$dark-gray;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1;
+  color:$light-gray;
+   @include respond(tab-port) {
+    font-size: 1rem;
+    line-height: 1;
+  }
 }
 
 .heading-tertiary {
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: 1.2rem;
+  font-weight: 600;
   line-height: 1.4;
   margin-bottom: 0.6rem;
+  @include respond(tab-port) {
+    font-size: 1rem;
+  }
 }
 
 /* Paragraphs */
 .paragraph-lead {
-  font-size: 1.2rem;
-  @media screen and (max-width: 450px) {
+  font-size: 1.6rem;
+  margin-bottom: 1.2rem;
+   @include respond(tab-port) {
     font-size: 0.8rem;
   }
 }
 
 .paragraph {
-  font-size: 1rem;
-  @media screen and (max-width: 450px) {
-    font-size: 0.8rem;
-  }
+  font-size: 1.4rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+
+   @include respond(tab-port) {
+      font-size: 0.8rem;
+    }
 }
+
 
 /* Other text elements */
 .text-small {
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   font-weight: 400;
   line-height: 1.4;
 }
 
 .text-large {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 400;
   line-height: 1.8;
 }
