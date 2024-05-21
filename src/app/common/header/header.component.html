@@ -22,16 +22,19 @@
 
   <div class="header-right">
 
-    <div class="input-textbox">
+    <div class="input-textbox" *ngIf="!isPhoneScreen">
       <mat-form-field appearance="outline">
         <mat-icon matPrefix>search</mat-icon>
         <input matInput placeholder="Explore by destintaion">
       </mat-form-field>
     </div>
+    <div class="input-textbox-search" *ngIf="isPhoneScreen" (click)="toggleSearchModal()">
+        <mat-icon matPrefix>search</mat-icon>
+    </div>
 
     <div class="header-right-cta">
       <div class="header-right-cta-login">
-        <button>Log in</button>
+        <button (click)="openLoginDialog()">Log in</button>
       </div>
       <div class="header-right-cta-signup">
         <button>Sign up</button>
@@ -39,4 +42,6 @@
     </div>
   </div>
 </mat-toolbar>
+<app-search-modal *ngIf="showSearchModal" (searchEvent)="handleSearchEvent()"></app-search-modal>
+
 <mat-divider></mat-divider>

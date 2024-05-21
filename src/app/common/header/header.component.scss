@@ -1,6 +1,6 @@
 @import '/src/styles/styles.scss';
 .container{
-  padding: 2rem 6rem;
+  @include containerMixin;
   background-color: #FFFFFF;
   display: flex;
   justify-content: space-between;
@@ -42,7 +42,7 @@ ul{
       border-bottom:4px solid $primary-color;
     }
   }
-  @include breakpoint-max(768px){
+  @include breakpoint-max(850px){
     display: none;
   }
 }
@@ -55,8 +55,12 @@ ul{
   gap: 25px;
 
   .input-textbox{
-    @include breakpoint-max(550px){
+    @include breakpoint-max(600px){
       display: none;
+    }
+    &-search{
+      display: flex;
+      cursor: pointer;
     }
   }
   &-cta{

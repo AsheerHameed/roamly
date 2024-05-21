@@ -1,0 +1,25 @@
+@import './mediaquerymanager.scss';
+@mixin containerMixin(){
+  padding: 4rem 6rem;
+  @include breakpoint-max(800px){
+    padding: 4rem;
+  }
+  @include breakpoint-max(600px){
+    padding: 1rem 2rem;
+  }
+}
+
+@mixin flexCenter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+@mixin flexCenterColumn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+}

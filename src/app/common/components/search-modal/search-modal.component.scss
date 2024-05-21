@@ -1,0 +1,38 @@
+.search-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-modal-content {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 4px;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  height: 100%;
+  .search-input {
+    width: 100%;
+    padding: 5% 0 0 0;
+    .mat-form-field-wrapper {
+      padding-bottom: 0;
+    }
+
+    .mat-form-field-infix {
+      padding: 0.7em 0;
+      border-top: none;
+    }
+
+    .mat-form-field-label-wrapper {
+      top: -1.5em;
+    }
+  }
+}
