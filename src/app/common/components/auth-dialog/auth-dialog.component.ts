@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { loginRequest } from '../../model/login';
+import { OnboardingService } from 'src/app/services/onboarding/onboarding.service';
 
 @Component({
   selector: 'app-auth-dialog',
@@ -11,9 +13,10 @@ export class AuthDialogComponent {
   isSignUp = false;
   signUpForm!: FormGroup;
   loginForm !: FormGroup;
-
+  loginRequest!:loginRequest;
   constructor(private dialogRef: MatDialogRef<AuthDialogComponent>,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private loginService:OnboardingService
   ) { }
   ngOnInit() {
     this.signUpForm = this.fb.group({
@@ -33,5 +36,17 @@ export class AuthDialogComponent {
   }
   close(){
     this.dialogRef.close();
+  }
+
+  signUp(){
+
+  }
+
+  login(){
+    this.loginRequest = {
+      "emailId": this.loginForm.controls['email'].value,
+      "password": this.loginForm.controls['password'].value,
+    }
+    this.loginService.login(this.loginRequest);
   }
 }

@@ -11,9 +11,7 @@
         <h2>Login with Google</h2>
       </div>
       <div class="dialog-content-or">
-        <div class="dialog-content-or-hr"></div>
         <div class="dialog-content-or-subtitle">or</div>
-        <div class="dialog-content-or-hr"></div>
       </div>
       <!-- Sign up form -->
       <form [formGroup]="signUpForm" >
@@ -60,8 +58,10 @@
     </form>
     </div>
   </mat-dialog-content>
+
   <mat-dialog-actions align="end" class="dialog-content-cta">
-    <a>{{ isSignUp ? 'Sign up' : 'Log in' }}</a>
+    <a (click)="signUp()" *ngIf="isSignUp">Sign up</a>
+    <a (click)="login()" *ngIf="!isSignUp">Log in</a>
     <a (click)="toggleForm()" *ngIf="isSignUp">Already have an account? <span>Log in</span></a>
     <a (click)="toggleForm()" *ngIf="!isSignUp">Dont't have an account? <span>Sign up</span></a>
   </mat-dialog-actions>
