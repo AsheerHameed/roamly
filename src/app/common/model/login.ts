@@ -5,23 +5,51 @@ export interface loginRequest{
 export interface signUpRequest{
   firstName:string,
   lastName:string,
-  emailid:string,
+  emailId:string,
   password:string,
 }
-export interface loginResponse{
-    success: string;
-    data: responseData;
-  }
-export interface responseData{
-  tokens: Tokens;
-  data: Data;
+// for login
+export interface loginResponse {
+  message: string
+  status: number
+  data: loginData
 }
-export interface Data {
-  id: string;
-  name: string;
-  emailId: string;
+
+export interface loginData {
+  tokens: Tokens
+  data: userData
 }
+
 export interface Tokens {
-  accessToken: string;
-  refreshToken: string;
+  accessToken: string
+  refreshToken: string
+}
+
+export interface userData {
+  id: string
+  name: string
+  emailId: string
+}
+
+//for sign up
+export interface signUpResponse {
+  message: string
+  status:number
+  data: signedUpUserData
+}
+
+export interface signedUpUserData {
+  email: string
+  otpExpiration: string
+}
+
+// for otp
+export interface verifyOtpRequest {
+  email: string,
+  otp: string
+}
+export interface verifyOtpResponse {
+  message: string
+  status: number
+  data: any
 }

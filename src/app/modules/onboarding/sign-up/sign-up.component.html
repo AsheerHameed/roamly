@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="login-with-google">
+    <img src="assets/google.png" alt="" srcset="">
+    <h2>Login with Google</h2>
+  </div>
+  <div class="form-wrapper">
+    <form [formGroup]="signUpForm" >
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput type="text" formControlName="firstName" placeholder="Enter your first name">
+        <mat-error *ngIf="signUpForm.get('firstName')?.hasError('required')">First name is required</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput type="text" formControlName="lastName" [maxlength]="30" placeholder="Enter your last name">
+        <mat-error *ngIf="hasError(signUpForm,'lastName','required')">Last name is required</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" placeholder="Enter your email">
+          <mat-error *ngIf="hasError(signUpForm,'email','required')">Email is required</mat-error>
+          <mat-error *ngIf="hasError(signUpForm, 'email', 'pattern')">Invalid email</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" placeholder="Enter your password">
+        <mat-error *ngIf="hasError(signUpForm, 'password', 'required')">Password is required</mat-error>
+        <mat-error *ngIf="hasError(signUpForm, 'password', 'pattern')">Invalid password</mat-error>
+      </mat-form-field>
+      <div class="form-submit">
+        <button type="submit" mat-button (click)="signUp()" *ngIf="isSignUp" >Sign up</button>
+      </div>
+    </form>
+  </div>
+</div>

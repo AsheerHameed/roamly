@@ -2,67 +2,45 @@
   <div class="container-close">
     <mat-icon (click)="close()">close</mat-icon>
   </div>
-  <h2 class="cards-heading">{{ isSignUp ? 'Sign up to take your trip planning to the next level' : 'Log in to take your trip planning to the next level' }}</h2>
+  <h2 class="cards-heading">
+    {{
+      isSignUp
+        ? "Sign up to take your trip planning to the next level"
+        : "Log in to take your trip planning to the next level"
+    }}
+  </h2>
   <mat-dialog-content class="dialog-content">
-
-    <div *ngIf="isSignUp" class="dialog-content">
-      <div class="login-with-google">
-        <img src="assets/google.png" alt="" srcset="">
-        <h2>Login with Google</h2>
-      </div>
-      <div class="dialog-content-or">
-        <div class="dialog-content-or-subtitle">or</div>
-      </div>
-      <!-- Sign up form -->
-      <form [formGroup]="signUpForm" >
-        <mat-form-field appearance="outline">
-          <mat-label>First Name</mat-label>
-          <input matInput type="text" formControlName="firstName" placeholder="Enter your first name">
-          <mat-error *ngIf="signUpForm.get('firstName')?.hasError('required')">First name is required</mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Last Name</mat-label>
-          <input matInput type="text" formControlName="lastName" placeholder="Enter your last name">
-          <mat-error *ngIf="signUpForm.get('lastName')?.hasError('required')">Last name is required</mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Email</mat-label>
-          <input matInput type="email" formControlName="email" placeholder="Enter your email">
-          <mat-error *ngIf="signUpForm.get('email')?.hasError('required')">Email is required</mat-error>
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-          <mat-label>Password</mat-label>
-          <input matInput type="password" formControlName="password" placeholder="Enter your password">
-          <mat-error *ngIf="signUpForm.get('password')?.hasError('required')">Password is required</mat-error>
-        </mat-form-field>
-      </form>
+    <div class="alert-container">
+      <phr-alert-msg></phr-alert-msg>
+    </div>
+    <div *ngIf="isSignUp && !showOtpForm" class="container-content">
+      <app-sign-up
+        (showOtpForm)="handleOtpFormVisibility($event)"
+      ></app-sign-up>
     </div>
 
+    <div *ngIf="!isSignUp && !showOtpForm" class="container-content">
+      <app-login></app-login>
+    </div>
 
-    <div *ngIf="!isSignUp" class="dialog-content">
-      <div class="login-with-google">
-        <img src="assets/google.png" alt="" srcset="">
-        <h2>Login with Google</h2>
-      </div>
-      <form [formGroup]="loginForm" class="dialog-content">
-      <mat-form-field appearance="outline">
-        <mat-label>Email</mat-label>
-        <input matInput type="email" placeholder="Enter your username" formControlName="email">
-        <mat-error *ngIf="loginForm.get('email')?.hasError('required')">Email is required</mat-error>
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Password</mat-label>
-        <input matInput type="password" placeholder="Enter your password" formControlName="password">
-        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">Password is required</mat-error>
-      </mat-form-field>
-    </form>
+    <div *ngIf="showOtpForm" class="container-content">
+      <app-otp-verification
+        (showOtpForm)="handleOtpFormVisibility($event)"
+        [userEmail]="userEmail"
+      ></app-otp-verification>
     </div>
   </mat-dialog-content>
 
-  <mat-dialog-actions align="end" class="dialog-content-cta">
-    <a (click)="signUp()" *ngIf="isSignUp">Sign up</a>
-    <a (click)="login()" *ngIf="!isSignUp">Log in</a>
-    <a (click)="toggleForm()" *ngIf="isSignUp">Already have an account? <span>Log in</span></a>
-    <a (click)="toggleForm()" *ngIf="!isSignUp">Dont't have an account? <span>Sign up</span></a>
+  <mat-dialog-actions align="end" class="dialog-content-actions">
+    <span *ngIf="isSignUp && !showOtpForm">
+      Already have an account?
+      <button mat-button (click)="toggleForm()">
+        <span>Log in</span>
+      </button>
+    </span>
+    <span *ngIf="!isSignUp && !showOtpForm">
+      Don't have an account?
+      <button mat-button (click)="toggleForm()"><span>Sign up</span></button>
+    </span>
   </mat-dialog-actions>
 </div>

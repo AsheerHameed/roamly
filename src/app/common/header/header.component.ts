@@ -3,6 +3,8 @@ import { BreakpointObserver } from "@angular/cdk/layout";
 import { AuthDialogComponent } from '../components/auth-dialog/auth-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { LandingService } from 'src/app/services/landingPage/landing.service';
+import { OnboardingService } from 'src/app/services/onboarding/onboarding.service';
+import { LocalStorageService } from '../services/local-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -10,16 +12,29 @@ import { LandingService } from 'src/app/services/landingPage/landing.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-
+  isLoggedIn: any;
+  isPhoneScreen = false;
+  showSearchModal = false;
+  userNameInitial = ''
   constructor(
     private observer:BreakpointObserver,
     private dialog: MatDialog,
     private searchResult:LandingService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private loginSvc: OnboardingService,
+    private localStorageSvc:LocalStorageService
   ){}
 
-  isPhoneScreen = false;
-  showSearchModal = false;
+  ngOnInit() {
+    this.isLoggedIn = this.loginSvc.isLoggedIn();
+    console.log(this.isLoggedIn)
+    const user = this.localStorageSvc.getWithExpiry('user')
+    console.log(user)
+    this.userNameInitial = user?.name[0]
+  }
+  ngOnChanges(){
+  console.log(this.isLoggedIn)
+}
   ngAfterViewInit(): void {
     this.observer.observe(["(max-width: 670px)"]).subscribe((res) => {
       if (res.matches) {
@@ -38,11 +53,11 @@ export class HeaderComponent {
     this.showSearchModal = false;
   }
 
-  openLoginDialog(){
+  openLoginDialog(isSignUp = false){
     this.dialog.open(AuthDialogComponent, {
-      width: '400px' // Set the desired width for the dialog
+      width: '400px',
+      data: { isSignUp }
     });
-    console.log("OPEN")
   }
   searchDestination(value:any) {
     const target = event?.target as HTMLInputElement;
@@ -52,4 +67,9 @@ export class HeaderComponent {
       this.searchResult.searchDestination(value);
     }
   }
+  // getInitials(){
+
+  // }
+
+  // }login
 }

@@ -7,6 +7,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { RoamlyModule } from '../common/roamly.module';
 import { LandingModule } from '../modules/landing/landing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { PlanTripModule } from '../modules/plan-trip/plan-trip.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     RoamlyModule,
     LandingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    PlanTripModule
   ],
   providers: [
     provideAnimationsAsync()

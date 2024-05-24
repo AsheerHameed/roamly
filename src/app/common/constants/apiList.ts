@@ -8,10 +8,10 @@ export const URLS = {
     },
   },
   signup : {
-    endPoint: "signup",
+    endPoint: "customer/signUp",
     reqHeader: {
-      EventName: "LOGOUT",
-      EventDescription: "logout user"
+      EventName: "signup",
+      EventDescription: "signup user"
     }
   },
   generalSearch:{
@@ -19,6 +19,13 @@ export const URLS = {
     reqHeader: {
       EventName: "place search",
       EventDescription: "api call for place search"
+    }
+  },
+  validateOtp:{
+    endPoint: "customer/validateOtp",
+    reqHeader: {
+      EventName: "otp sent",
+      EventDescription: "api call for otp sent"
     }
   }
 }

@@ -23,7 +23,7 @@
     &-wrapper{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      @include breakpoint-max(800px){
+      @include breakpoint-max(900px){
         grid-template-columns: repeat(2, 1fr);
       }
       @include breakpoint-max(700px){
