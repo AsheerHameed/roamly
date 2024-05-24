@@ -1,0 +1,9 @@
+<div class="search-modal-overlay" (click)="closeModal()">
+  <div class="search-modal-content" (click)="$event.stopPropagation()">
+    <mat-form-field appearance="outline" class="search-input">
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput placeholder="Exoplore by destination" (input)="searchDestination($event)">
+      <mat-icon matSuffix (click)="closeModal()">close</mat-icon>
+    </mat-form-field>
+  </div>
+</div>

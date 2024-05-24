@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="login-with-google">
+    <img src="assets/google.png" alt="" srcset="">
+    <h2>Login with Google</h2>
+  </div>
+  <div class="form-wrapper">
+    <form [formGroup]="loginForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" placeholder="Enter your username" formControlName="email">
+      <mat-error *ngIf="hasError(loginForm,'email','required')">Email is required</mat-error>
+      <mat-error *ngIf="hasError(loginForm,'email','pattern')">Invalid email format</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" placeholder="Enter your password" formControlName="password">
+      <mat-error *ngIf="hasError(loginForm,'password','required')">Password is required</mat-error>
+      <mat-error *ngIf="hasError(loginForm,'password','pattern')">Please enter valid password</mat-error>
+    </mat-form-field>
+    <div class="form-submit">
+      <button type="submit" mat-button (click)="login()">Login</button>
+    </div>
+    </form>
+  </div>
+</div>

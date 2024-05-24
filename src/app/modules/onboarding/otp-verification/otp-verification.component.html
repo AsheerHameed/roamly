@@ -1,0 +1,31 @@
+<div class="container">
+  <h2 class='cards-heading'>Please enter OTP</h2>
+  <!-- <div class="alert-container">
+    <phr-alert-msg></phr-alert-msg>
+  </div> -->
+  <div class="form-wrapper">
+    <form [formGroup]="otpForm" class="otp-form">
+      <mat-form-field appearance="outline">
+        <input matInput formControlName="otp1" maxlength="1" placeholder="0" (keyup)="moveToNext('otp1', $event)" #otpInput>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input matInput formControlName="otp2" maxlength="1" placeholder="0" (keyup)="moveToNext('otp2', $event)" #otpInput>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input matInput formControlName="otp3" maxlength="1" placeholder="0" (keyup)="moveToNext('otp3', $event)" #otpInput>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input matInput formControlName="otp4" maxlength="1" placeholder="0" (keyup)="moveToNext('otp4', $event)" #otpInput>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input matInput formControlName="otp5" maxlength="1" placeholder="0" (keyup)="moveToNext('otp5', $event)" #otpInput>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <input matInput formControlName="otp6" maxlength="1" placeholder="0" #otpInput>
+      </mat-form-field>
+    </form>
+  </div>
+  <div class="form-submit">
+    <button type="submit" mat-button (click)="validateOtp()">Verify</button>
+  </div>
+</div>

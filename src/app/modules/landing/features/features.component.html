@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="container-heading">
+    <h1 class="heading-primary">Features to replace all your other tools</h1>
+    <div class="container-cards-wrapper">
+      <div class="container-cards" *ngFor="let card of cards">
+        <img src="assets/{{card.image}}" alt="" srcset="" [@fadeInOut]>
+        <h2 class="cards-heading">{{card.heading}}</h2>
+        <p class="paragraph-lead">{{card.subheading}}</p>
+      </div>
+    </div>
+  </div>
+</div>

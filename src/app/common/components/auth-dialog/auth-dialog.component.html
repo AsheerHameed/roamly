@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="container-close">
+    <mat-icon (click)="close()">close</mat-icon>
+  </div>
+  <h2 class="cards-heading">
+    {{
+      isSignUp
+        ? "Sign up to take your trip planning to the next level"
+        : "Log in to take your trip planning to the next level"
+    }}
+  </h2>
+  <mat-dialog-content class="dialog-content">
+    <div class="alert-container">
+      <phr-alert-msg></phr-alert-msg>
+    </div>
+    <div *ngIf="isSignUp && !showOtpForm" class="container-content">
+      <app-sign-up
+        (showOtpForm)="handleOtpFormVisibility($event)"
+      ></app-sign-up>
+    </div>
+
+    <div *ngIf="!isSignUp && !showOtpForm" class="container-content">
+      <app-login></app-login>
+    </div>
+
+    <div *ngIf="showOtpForm" class="container-content">
+      <app-otp-verification
+        (showOtpForm)="handleOtpFormVisibility($event)"
+        [userEmail]="userEmail"
+      ></app-otp-verification>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end" class="dialog-content-actions">
+    <span *ngIf="isSignUp && !showOtpForm">
+      Already have an account?
+      <button mat-button (click)="toggleForm()">
+        <span>Log in</span>
+      </button>
+    </span>
+    <span *ngIf="!isSignUp && !showOtpForm">
+      Don't have an account?
+      <button mat-button (click)="toggleForm()"><span>Sign up</span></button>
+    </span>
+  </mat-dialog-actions>
+</div>

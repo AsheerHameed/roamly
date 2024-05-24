@@ -1,0 +1,34 @@
+@import '/src/styles/abstracts/mixins/mediaquerymanager.scss';
+@import '/src/styles/styles.scss';
+.container{
+  @include containerMixin;
+  &-heading{
+    text-align: center;
+  }
+  &-cards{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    @include containerMixin;
+    h2,p{
+      margin: 0;
+      padding: 16px 0 0 0;
+      text-align: center;
+      // max-width: 260px;
+    }
+    img{
+      max-width: 260px;
+    }
+    &-wrapper{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      @include breakpoint-max(900px){
+        grid-template-columns: repeat(2, 1fr);
+      }
+      @include breakpoint-max(700px){
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  }
+}

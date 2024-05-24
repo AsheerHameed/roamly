@@ -9,3 +9,13 @@
 .mdc-text-field--outlined {
   --mdc-outlined-text-field-container-shape: 14px !important;
 }
+.mat-mdc-dialog-container{
+  --mdc-dialog-container-shape : 20px;
+}
+.otp-form{
+  .mat-mdc-text-field-wrapper {
+    width: 50px;
+    z-index: 0;
+    margin-right: 5px;
+}
+}

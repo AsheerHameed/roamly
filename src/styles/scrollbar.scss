@@ -1,0 +1,27 @@
+@import './abstracts/variables.scss';
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    overflow: auto;
+}
+
+::-webkit-scrollbar-thumb {
+    background:#c3c3c3;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    border: 0;
+}
+
+::-webkit-scrollbar-track {
+    background:#eeeeee;
+    border-radius: 30px;
+}
+
+::-webkit-scrollbar-track:hover {
+    background: #ffffff;
+}
