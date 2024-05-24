@@ -25,19 +25,24 @@
     <div class="input-textbox" *ngIf="!isPhoneScreen">
       <mat-form-field appearance="outline">
         <mat-icon matPrefix>search</mat-icon>
-        <input matInput placeholder="Explore by destintaion">
+        <input matInput placeholder="Explore by destintaion" (input)="searchDestination($event)">
       </mat-form-field>
     </div>
     <div class="input-textbox-search" *ngIf="isPhoneScreen" (click)="toggleSearchModal()">
         <mat-icon matPrefix>search</mat-icon>
     </div>
 
-    <div class="header-right-cta">
+    <div class="header-right-cta" *ngIf="!isLoggedIn">
       <div class="header-right-cta-login">
-        <button (click)="openLoginDialog()">Log in</button>
+        <button (click)="openLoginDialog(false)">Log in</button>
       </div>
       <div class="header-right-cta-signup">
-        <button>Sign up</button>
+        <button (click)="openLoginDialog(true)">Sign up</button>
+      </div>
+    </div>
+    <div class="header-right-avatar" *ngIf="isLoggedIn">
+      <div class="avatar">
+        {{ userNameInitial }}
       </div>
     </div>
   </div>

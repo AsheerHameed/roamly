@@ -1,0 +1,48 @@
+@import '/src/styles/styles.scss';
+.alert-msg-container {
+  margin-bottom: 16px;
+  min-height: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  h4 {
+    font-weight: 500;
+  }
+  &__error-message-content {
+    color: $phr-color-red-error;
+  }
+  &__info-message-content {
+    color: $phr-brand-primary;
+  }
+  &__success-message-content {
+    color: $phr-status-completed-bg-color;
+  }
+  &__warning-message-content {
+    color: $phr-color-warning-text;
+  }
+  span {
+    mat-icon {
+      padding-top: 4px;
+      cursor: pointer;
+      color: $color-text;
+    }
+  }
+}
+
+.error-message-container {
+  background-color: $phr-color-error-bg;
+}
+
+.info-message-container {
+  background-color: $phr-color-info-bg;
+}
+
+.success-message-container {
+  background-color: $phr-color-success-bg;
+}
+.warning-message-container {
+  background-color: $phr-color-warning-bg;
+}
