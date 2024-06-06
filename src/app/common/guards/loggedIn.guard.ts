@@ -19,7 +19,7 @@ export class LoggedInGuard implements CanActivate, CanActivateChild {
 
   private checkLoggedIn(): boolean | UrlTree {
     if (this.loginService.isLoggedIn()) {
-      return this.router.createUrlTree(['/plan']);
+      return this.router.createUrlTree(['/dashboard']);
     }
     return true;
   }

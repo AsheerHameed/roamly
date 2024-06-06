@@ -5,5 +5,6 @@
       <input matInput placeholder="Exoplore by destination" (input)="searchDestination($event)">
       <mat-icon matSuffix (click)="closeModal()">close</mat-icon>
     </mat-form-field>
+    <app-search-results [searchResults]="searchResults"></app-search-results>
   </div>
 </div>

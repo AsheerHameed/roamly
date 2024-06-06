@@ -8,20 +8,23 @@ import { LandingService } from 'src/app/services/landingPage/landing.service';
 })
 export class SearchModalComponent {
   @Output() searchEvent = new EventEmitter<string>();
-
+  searchResults : any = [];
   constructor(private searchResult:LandingService){}
-
   closeModal() {
     // Emit an event to close the modal
     this.searchEvent.emit();
   }
   searchDestination(value:any) {
     const target = event?.target as HTMLInputElement;
-    console.log("log", target.value)
+    console.log("log", target.value);
     if (target) {
       const value = target.value;
-      this.searchResult.searchDestination(value);
-    }
-    this.searchEvent.emit('search query');
-  }
+      this.searchResult.searchDestination(value)
+      .subscribe((results: any[]) => {
+        this.searchResults = results;
+      });
+  } else {
+    this.searchResults = [];
+  };
+}
 }

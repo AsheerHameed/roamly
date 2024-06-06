@@ -18,15 +18,28 @@
       </li>
   </ul>
 </div> -->
-<div *ngIf="searchResults.length > 0" class="container">
-  <ul>
-    <li *ngFor="let result of searchResults; let isLast=last" class="container-li">
+<div *ngIf="searchResults.length > 0 && !searchModal" class="container">
+  <ul *ngFor="let result of searchResults; let isLast=last">
+    <li  class="container-li">
       <mat-icon> location_on </mat-icon>
       <div class="container-li-content">
         <h2>{{ result.cityName }}</h2>
         <h6>{{ result.cityName }}</h6>
       </div>
-        <mat-divider *ngIf="!isLast"></mat-divider>
+      <mat-divider *ngIf="!isLast"></mat-divider>
     </li>
+  </ul>
+</div>
+
+<div *ngIf="searchResults.length > 0 && searchModal" class="phone-container">
+  <ul *ngFor="let result of searchResults; let isLast=last">
+    <li  class="phone-container-li">
+      <mat-icon> location_on </mat-icon>
+      <div class="phone-container-li-content">
+        <h2>{{ result.cityName }}</h2>
+        <h6>{{ result.cityName }}</h6>
+      </div>
+    </li>
+    <div class="line" *ngIf="!isLast"></div>
   </ul>
 </div>
