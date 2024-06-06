@@ -14,8 +14,6 @@ export class LandingService {
     const url = URLS.generalSearch;
     const params = new HttpParams().set('place', value);
 
-    this.api.get(url.endPoint,{"place" : value}).subscribe((res:any)=>{
-      console.log(res);
-    })
+    return this.api.get(url.endPoint,{"place" : value})
   }
 }

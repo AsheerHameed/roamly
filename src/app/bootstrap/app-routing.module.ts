@@ -8,6 +8,7 @@ import { IsAuthGuard } from '../common/guards/authGuard.guard';
 const routes: Routes = [
   {path: '', component:LandingComponent,canActivate:[LoggedInGuard]},
   {path: 'plan', component:PlanTripComponent,canActivate:[IsAuthGuard]}
+  {path:'dashboard', loadChildren: () => import('../modules/user-dashboard/user-dashboard.module').then(m => m.UserDashboardModule)}
 ];
 
 @NgModule({

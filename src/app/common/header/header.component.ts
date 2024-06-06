@@ -15,7 +15,8 @@ export class HeaderComponent {
   isLoggedIn: any;
   isPhoneScreen = false;
   showSearchModal = false;
-  userNameInitial = ''
+  userNameInitial = '';
+  searchResults: any[] = [];
   constructor(
     private observer:BreakpointObserver,
     private dialog: MatDialog,
@@ -27,11 +28,9 @@ export class HeaderComponent {
 
   ngOnInit() {
     this.isLoggedIn = this.loginSvc.isLoggedIn();
-    console.log(this.isLoggedIn)
     const user = this.localStorageSvc.getWithExpiry('user')
-    console.log(user)
-    this.userNameInitial = user?.name[0]
-  }
+    this.userNameInitial = user?.name[0].toString().toUpperCase();
+    }
   ngOnChanges(){
   console.log(this.isLoggedIn)
 }
@@ -64,9 +63,15 @@ export class HeaderComponent {
     console.log("log", target.value)
     if (target) {
       const value = target.value;
-      this.searchResult.searchDestination(value);
-    }
-  }
+      this.searchResult.searchDestination(value)
+      .subscribe((results: any[]) => {
+        this.searchResults = results;
+      });
+  } else {
+    this.searchResults = [];
+  };
+}
+
   // getInitials(){
 
   // }

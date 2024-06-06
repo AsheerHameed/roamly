@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="cards-container">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-heading">
+          <h2>Your Trips</h2>
+        </div>
+
+        <div class="card-cta">
+          <button>
+            <span>
+              <mat-icon>add</mat-icon>
+            </span>
+            Plan new trip
+          </button>
+        </div>
+
+      </div>
+      <div class="card-content-wrapper" *ngFor="let data of limitedTripData; let isLast = last">
+        <div class="card-content">
+          <div class="card-content-left">
+            <img src={{data.image}} alt="" srcset="" width="80px" height="80px" style="border-radius: 10px;">
+          </div>
+          <div class="card-content-right">
+
+            <div class="card-content-right-top">
+              <h1 class="heading-tertiary">{{data.title}}</h1>
+            </div>
+            <div class="card-content-right-bottom">
+              <div class="header-right-avatar" *ngIf="isLoggedIn">
+                {{ userNameInitial }}
+              </div>
+              <div class="places-visited">
+                <h2 class="text-large">{{data.places}}</h2>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="divider" *ngIf="!isLast"></div>
+      </div>
+
+      <div class="show-more" *ngIf="showSeeAllButton">
+        <button (click)="navigateToUserInfo()">See All</button>
+      </div>
+
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-heading">
+          <h2>Your guides</h2>
+        </div>
+
+        <div class="card-cta">
+          <button>
+            <span>
+              <mat-icon>add</mat-icon>
+            </span>
+            Create new guide
+          </button>
+        </div>
+
+        <div class="card-content">
+
+        </div>
+
+      </div>
+    </div>
+  </div>

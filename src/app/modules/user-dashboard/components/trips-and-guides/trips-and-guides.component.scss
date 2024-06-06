@@ -1,0 +1,135 @@
+@import '/src/styles/styles.scss';
+
+.container{
+  // @include containerMixin;
+  @include flexCenter;
+  // width: 100%;
+  // padding: 4rem 1rem;
+}
+
+
+.card-cta{
+  button{
+    border-radius: 100px;
+    height: 40px;
+    min-width: 75px;
+    padding: 12px 24px;
+    background-color: #FFFFFF;
+    border: none;
+    outline: none;
+    color:$color-text;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: $primary-font;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    &:hover {
+      background-color: $light-gray;
+    }
+
+    @include breakpoint-max(550px){
+      height: 34px;
+      /* min-width: 36px; */
+      padding: 4px 12px;
+    }
+  }
+  span{
+    display: flex
+  }
+}
+.cards-container{
+  display: flex;
+  width: 100%;
+  @include flexCenter;
+  @include containerMixin;
+  justify-content: space-between;
+}
+.card{
+  display: flex;
+  width: 500px;
+  min-height: 275px;
+  background-color: $lightest-gray;
+  border-radius: 12px;
+  flex-direction: column;
+  padding: 12px 24px;
+  &-header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+  &-heading{
+    h2{
+      @include heading-secondary($color-text);
+      margin: 0;
+    }
+  }
+  &-content{
+
+    display: flex;
+    gap: 24px;
+    padding: 12px 0;
+    // flex-direction: column;
+    &-right{
+
+      &-top{
+        h1{
+          // @include heading-secondary($dark-gray);
+          margin-top:0;
+          font-weight: normal;
+          color: $color-text;
+        }
+      }
+
+      &-bottom{
+        display: flex;
+        gap: 10px;
+        margin-top: -12px;
+        align-items: center;
+        h2{
+
+        }
+      }
+    }
+    &-wrapper{
+      // display: flex;
+    }
+  }
+
+  .show-more{
+    display: flex;
+    justify-content: flex-end;
+    button{
+      @include flat-btn($dark-gray)
+    }:hover{
+      color: $light-gray;
+    }
+  }
+}
+.header-right-avatar{
+    background: #dee2e6;
+    padding: 16px;
+    border-radius: 100px;
+    border:2px solid white;
+    cursor: pointer;
+    font-size: 16px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 0;
+    height: 0;
+    font-weight: 700;
+    color:$dark-gray;
+    @include breakpoint-max(550px){
+    // padding: 2px 11px;
+    }
+
+}
+.divider{
+ height: 1px;
+ background-color: #dee2e6;
+ width: 100%;
+}

@@ -1,23 +1,26 @@
 :host {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; // Use viewport height as the minimum height
-  }
-  
-  .container {
-    flex: 1; // Allow the container to grow and occupy remaining space
-    display: flex;
-    flex-direction: column;
-  }
-  
-  app-header {
-    flex-shrink: 0; // Prevent header from shrinking
-  }
-  
-  router-outlet {
-    flex-grow: 1; // Allow the router-outlet to grow and occupy remaining space
-  }
-  
-  app-footer {
-    flex-shrink: 0; // Prevent footer from shrinking
-  }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; // Use viewport height as the minimum height
+}
+
+.container {
+  flex: 1; // Allow the container to grow and occupy remaining space
+  display: flex;
+  flex-direction: column;
+}
+
+app-header {
+  flex-shrink: 0; // Prevent header from shrinking
+}
+
+router-outlet {
+  flex-grow: 1; // Allow the router-outlet to grow and occupy remaining space
+}
+
+app-footer {
+  flex-shrink: 0; // Prevent footer from shrinking
+}
+.container-2{
+  min-height: 70vh;
+}
