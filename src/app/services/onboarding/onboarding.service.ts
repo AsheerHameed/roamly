@@ -14,7 +14,7 @@ import { LoginComponent } from 'src/app/modules/onboarding/login/login.component
 export class OnboardingService {
 
   url: any = {} as URL;
-  authId: string = '';
+  authId: string = 'Authorization';
 
   constructor(private api: ApiService,private localStorageSvc:LocalStorageService,private router:Router) {}
 

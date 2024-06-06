@@ -1,19 +1,19 @@
 <mat-toolbar class="container">
   <div class="header-left">
-    <div class="logo-with-text">
+    <div class="logo-with-text" routerLink = '/'>
       <img src="assets/logo.png" alt="" srcset="">
       <p>Roamly</p>
     </div>
 
     <div class="nav-links">
       <ul>
-        <li  class="heading-tertiary">
+        <li  class="heading-fourth">
           Home
         </li>
-        <li class="heading-tertiary">
+        <li class="heading-fourth">
           Travel guides
         </li>
-        <li class="heading-tertiary">
+        <li class="heading-fourth">
           Hotels
         </li>
       </ul>
@@ -21,13 +21,19 @@
   </div>
 
   <div class="header-right">
-
+<div class="search-result-container">
+  <div class="search-result-container-input">
     <div class="input-textbox" *ngIf="!isPhoneScreen">
       <mat-form-field appearance="outline">
         <mat-icon matPrefix>search</mat-icon>
         <input matInput placeholder="Explore by destintaion" (input)="searchDestination($event)">
       </mat-form-field>
     </div>
+  </div>
+  <div class="search-result-container-results">
+    <app-search-results [searchResults]="searchResults"></app-search-results>
+  </div>
+</div>
     <div class="input-textbox-search" *ngIf="isPhoneScreen" (click)="toggleSearchModal()">
         <mat-icon matPrefix>search</mat-icon>
     </div>

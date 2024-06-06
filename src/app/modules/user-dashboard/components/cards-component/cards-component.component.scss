@@ -1,0 +1,28 @@
+//
+@import '/src/styles/styles.scss';
+  .container{
+  @include containerMixin;
+  h2{
+    margin-top: 0;
+    color: $color-text;
+  }
+}
+.card{
+  @include flexCenterColumn;
+  &-img{
+    img{
+      width: 280px;
+      height: 180px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+  }
+  // &-head{
+
+  // }
+}
+.cards-container {
+  display: flex;
+  gap: 12px;
+  overflow: auto;
+}

@@ -1,0 +1,68 @@
+@import '/src/styles/styles.scss';
+
+.container {
+    @include flexCenterColumn;
+}
+h1{
+    text-align: center;
+}
+.trip-plan-container{
+    width: 40%;
+}
+
+.formFieldPlan{
+    mat-form-field{
+      width:  100% !important;
+    }
+  }
+
+.wrapperTripSelect {
+    // @include flexCenter;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-bottom: 12px;
+}
+
+
+.wrapperTripSelectColumn {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 12px;
+
+    .selectDisplayType {
+        display: flex;
+        justify-content: flex-end;
+        width: 50rem;
+    }
+}
+
+
+.input-textbox-search {
+    @include flexCenter;
+    gap: 6px;
+    cursor: pointer;
+
+    mat-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 20px;
+    }
+
+    &:hover {
+        color: #3f52e3;
+    }
+
+    span {
+        margin: 0;
+    }
+}
+
+.start-plan-button {
+    button {
+        @include roamly-primary-button;
+
+    }
+}
