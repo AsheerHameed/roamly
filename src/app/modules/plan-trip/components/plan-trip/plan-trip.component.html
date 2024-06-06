@@ -1,2 +1,71 @@
-<p>plan-trip works!</p>
-<phr-alert-msg></phr-alert-msg>
+<div class="container">
+
+    <div class="trip-plan-container">
+        <h1 class="heading-primary">Plan a new trip</h1>
+
+        <div class="wrapper-date-whereto">
+            <div class="formFieldPlan">
+    
+                <mat-form-field appearance="outline">
+                    <mat-label><strong>Where to?</strong></mat-label>
+                    <input matInput placeholder="e.g. Paris,Hawaii,Japan">
+                </mat-form-field>
+        
+            </div>
+        
+            <div class="formFieldPlan">
+                <mat-form-field appearance="outline">
+                    <mat-label><strong>Dates (optional)</strong></mat-label>
+                    <mat-date-range-input [rangePicker]="picker">
+                        <input matStartDate placeholder="Start date">
+                        <input matEndDate placeholder="End date">
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                </mat-form-field>
+        
+            </div>
+    
+        </div>
+    
+        <div [ngClass]="!showTripmateDiv ? 'wrapperTripSelect' : 'wrapperTripSelectColumn'">
+            <div *ngIf="!showTripmateDiv" (click)="displayTripmateDiv()">
+                <div class="input-textbox-search">
+                    <mat-icon matPrefix>add</mat-icon>
+                    <span class="heading-tertiary">Invite Tripmates</span>
+                </div>
+            </div>
+    
+            <div *ngIf="showTripmateDiv" class="formFieldPlan" [@fadeInOut]>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Invite Tripmates</mat-label>
+                    <input matInput placeholder="Enter an email address">
+                </mat-form-field>
+            </div>
+    
+            <div class="selectDisplayType">
+                <mat-form-field appearance="outline">
+                    <mat-select [(value)]="selected">
+                        <mat-option value="friends"><mat-icon>group</mat-icon>
+                            Friends</mat-option>
+                        <mat-option value="public"><mat-icon>public</mat-icon>Public</mat-option>
+                        <mat-option value="private"><mat-icon>lock</mat-icon>Private</mat-option>
+                    </mat-select>
+                </mat-form-field>
+    
+            </div>
+    
+            
+    
+        </div>
+    
+        <div class="start-plan-button">
+            <button>Start planning</button>
+          </div>
+    
+        <a href="">Or write a new guide</a>
+
+    </div>
+   
+
+</div>

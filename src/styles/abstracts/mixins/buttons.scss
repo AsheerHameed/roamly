@@ -46,5 +46,26 @@
     /* min-width: 36px; */
     padding: 4px 12px;
   }
+
+}
+
+@mixin dialogButton(){
+  color: $blue-color;
+  font-size: 14px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-family: "Source Sans 3", sans-serif;
+  span {
+    font-size: 14px;
+    color: $blue-color;
+    font-weight: 700;
+  }
+
+  &:disabled{
+    color: #b7b7b7;
+    cursor: not-allowed;
+  }
 }
 

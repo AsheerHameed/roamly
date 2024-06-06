@@ -28,7 +28,8 @@
         <mat-error *ngIf="hasError(signUpForm, 'password', 'pattern')">Invalid password</mat-error>
       </mat-form-field>
       <div class="form-submit">
-        <button type="submit" mat-button (click)="signUp()" *ngIf="isSignUp" >Sign up</button>
+        <!-- <button type="submit" mat-button (click)="signUp()" *ngIf="isSignUp" >Sign up</button> -->
+        <button type="submit" mat-button (click)="signUp()" [disabled]="signUpForm.invalid" >Sign up</button>
       </div>
     </form>
   </div>

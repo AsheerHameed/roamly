@@ -1,62 +1,62 @@
 @import '/src/styles/styles.scss';
-.login-with-google{
+
+.login-with-google {
   display: flex;
   align-items: center;
   gap: 20px;
   cursor: pointer;
   background-color: $secondary-color;
-  border: 1px solid  #eff7ff;
+  border: 1px solid #eff7ff;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border-radius: 35px;
   width: 65%;
   padding: 8px 16px;
   margin: 16px 0;
-  img{
+
+  img {
     width: 24px;
     height: 24px;
   }
-  h2{
+
+  h2 {
     font-size: 14px;
     color: $light-gray;
   }
 
 }
-.login-with-google:hover{
+
+.login-with-google:hover {
   background-color: $lightest-gray;
   border: 1px solid #3333;
 }
 
-.container{
+.container {
   @include flexCenterColumn;
 }
-.form-wrapper{
-  form{
+
+.form-wrapper {
+  form {
     @include flexCenterColumn;
   }
+
   width: 100%;
-  mat-form-field{
+
+  mat-form-field {
     width: 70%;
   }
 }
-.form-submit{
+
+.form-submit {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  span{
+
+  span {
     font-size: 14px;
   }
+
   button {
-    color: $blue-color;
-    font-size: 14px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-weight: 700;
-    font-family: "Source Sans 3", sans-serif;
-    span {
-      font-size: 14px;
-      color: $blue-color;
-      font-weight: 700;
-    }
-}
+    @include dialogButton;
+  }
+
 }

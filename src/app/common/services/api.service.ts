@@ -63,7 +63,8 @@ export class ApiService {
   }
   public post(url: string, data?: any,headers?:any): Observable<userResponse | any> {
     return this.http.post<userResponse>(`${this.roamlyEndpoint}/${url}`, data,{headers}).pipe(map(this.extractData),
-      catchError(this.handleError))
+      // catchError(this.handleError)
+    )
   }
 
   public update(url: string, data: any,headers?:any): Observable<any> {

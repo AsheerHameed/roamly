@@ -5,6 +5,7 @@ import { RegularExpressions } from 'src/app/common/constants/regexList';
 import { loginRequest } from 'src/app/common/model/login';
 import { ApiService } from 'src/app/common/services/api.service';
 import { OnboardingService } from 'src/app/services/onboarding/onboarding.service';
+import { AlertMessageService } from 'src/app/common/services/alert-message.service';
 
 @Component({
   selector: 'app-login',
@@ -19,8 +20,8 @@ export class LoginComponent {
     private fb: FormBuilder,
     private loginService:OnboardingService,
     private api:ApiService,
-    public dialogRef: MatDialogRef<LoginComponent>
-
+    public dialogRef: MatDialogRef<LoginComponent>,
+    private alertSvc: AlertMessageService
   ) {}
 
   ngOnInit() {
@@ -47,6 +48,6 @@ login(){
       "password": this.loginForm.controls['password'].value,
     }
     this.loginService.login(this.loginRequest, this.dialogRef);
-
+    
   }
 }
