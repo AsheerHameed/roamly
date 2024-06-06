@@ -22,30 +22,56 @@ export class OtpVerificationComponent {
   verifyOtpSub!: Subscription;
   constructor(
     private fb: FormBuilder,
-    private router:Router,
-    private dialog:MatDialog,
+    private router: Router,
+    private dialog: MatDialog,
     private dialogRef: MatDialogRef<OtpVerificationComponent>,
 
-    private api:ApiService, private alertSvc:AlertMessageService) { }
+    private api: ApiService, private alertSvc: AlertMessageService) { }
   @Output() showLoginForm = new EventEmitter();
   ngOnInit() {
     this.otpForm = this.fb.group({
-      otp1: ['', Validators.required],
-      otp2: ['', Validators.required],
-      otp3: ['', Validators.required],
-      otp4: ['', Validators.required],
-      otp5: ['', Validators.required],
-      otp6: ['', Validators.required]
+      otp1: ['', [Validators.required,Validators.pattern("^[0-9]*$")]],
+      otp2: ['', [Validators.required,Validators.pattern("^[0-9]*$"),Validators.maxLength(1)]],
+      otp3: ['', [Validators.required,Validators.pattern("^[0-9]*$")]],
+      otp4: ['', [Validators.required,Validators.pattern("^[0-9]*$")]],
+      otp5: ['', [Validators.required,Validators.pattern("^[0-9]*$")]],
+      otp6: ['', [Validators.required,Validators.pattern("^[0-9]*$")]]
     });
   }
 
   moveToNext(controlName: string, event: any) {
-    if (event.key !== 'Backspace' && event.target.value.length === 1) {
+    if (event.key !== 'Backspace' && event.target.value.length === 1 ) {
       const nextControl = this.getNextControl(controlName);
       if (nextControl) {
+        // console.log(nextControl.nativeElement);
         nextControl.nativeElement.focus();
       }
     }
+
+  }
+
+  moveToPrevious(controlName: string, event: any) {
+    const eventVal = event.target.value;
+    if (event.key == 'Backspace') {
+      if (eventVal == '') {
+        const previousControl = this.getPreviousControl(controlName);
+        previousControl?.nativeElement.focus();
+      }
+    }
+  }
+
+  getPreviousControl(controlName: string) {
+
+    const controls = this.otpForm.controls;
+    const controlNames = Object.keys(controls);
+    const currentControlIndex = controlNames.indexOf(controlName);
+    const previousControlIndex = currentControlIndex - 1;
+    // console.log(this.otpInputs.toArray()[previousControlIndex]);
+    if (previousControlIndex <= -1) {
+      return null;
+    }
+    return this.otpInputs.toArray()[previousControlIndex];
+
   }
 
   getNextControl(controlName: string) {
@@ -90,7 +116,7 @@ export class OtpVerificationComponent {
               width: '400px',
               data: { isSignUp }
             });
-          },3000);
+          }, 3000);
 
         } else {
           return this.handleVerificationError(response);

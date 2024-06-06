@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PlanTripComponent } from './components/plan-trip/plan-trip.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { MaterialModule } from 'src/app/material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PlanTripRoutingModule } from './plan-trip-routing.module';
 
 
 
@@ -9,9 +12,11 @@ import { SharedModule } from 'src/app/shared/shared.module';
   declarations: [PlanTripComponent],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    MaterialModule
   ],
   exports:[
+    PlanTripRoutingModule,
     PlanTripComponent
   ]
 })
