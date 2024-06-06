@@ -1,0 +1,15 @@
+<div class="container">
+  <h2 class="heading-primary">
+    {{cardsHeading}}
+  </h2>
+  <div class="cards-container">
+    <div class="cards" *ngFor="let card of cards">
+      <div class="card-img">
+        <img src={{card.image}} alt="" srcset="">
+      </div>
+      <div class="card-head">
+        <h2 class="paragraph-lead">{{card.head}}</h2>
+      </div>
+    </div>
+  </div>
+</div>

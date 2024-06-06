@@ -1,0 +1,32 @@
+<!-- <div *ngIf="searchResults.length > 0" class="container">
+  <ul>
+      <li *ngFor="let result of searchResults; let isLast=last" class="container-li" >
+        <mat-icon>
+          location_on
+         </mat-icon>
+         <div class="container-li-content">
+           <h2>
+            {{ result.cityName }}
+           </h2>
+           <h6>
+            {{ result.cityName}}
+           </h6>
+         </div>
+         <div *ngIf="!isLast">
+           <mat-divider></mat-divider>
+         </div>
+      </li>
+  </ul>
+</div> -->
+<div *ngIf="searchResults.length > 0" class="container">
+  <ul>
+    <li *ngFor="let result of searchResults; let isLast=last" class="container-li">
+      <mat-icon> location_on </mat-icon>
+      <div class="container-li-content">
+        <h2>{{ result.cityName }}</h2>
+        <h6>{{ result.cityName }}</h6>
+      </div>
+        <mat-divider *ngIf="!isLast"></mat-divider>
+    </li>
+  </ul>
+</div>

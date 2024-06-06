@@ -1,0 +1,50 @@
+@import '/src/styles/styles.scss';
+.container{
+  background-color: #fff;
+  max-width: 275px;
+  min-width: 275px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: absolute;
+  top: 60px;
+  padding:0 8px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  ul{
+    padding: 0;
+  }
+  li{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  &-li{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    mat-icon{
+      background: $lightest-gray;
+      padding: 12px;
+      border-radius: 100%;
+    }
+
+    &-content{
+      display: flex;
+      flex-direction: column;
+      h2{
+        font-family: $primary-font;
+        font-size: 16px;
+        color: #333333;
+      }
+      h6{
+        font-family: $primary-font;
+        font-size: 12px;
+        line-height: 8px;
+        color: $light-gray;
+      }
+    }
+
+  }
+}
+

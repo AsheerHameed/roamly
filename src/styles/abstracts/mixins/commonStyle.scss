@@ -1,6 +1,6 @@
 @import './mediaquerymanager.scss';
 @mixin containerMixin(){
-  padding: 4rem 6rem;
+  padding: 4rem 15rem;
   @include breakpoint-max(800px){
     padding: 4rem;
   }

@@ -5,7 +5,7 @@ import { LandingComponent } from '../modules/landing/landing.component';
 
 const routes: Routes = [
   {path: '', component:LandingComponent},
-  {path: 'plan', component:PlanTripComponent}
+  {path:'dashboard', loadChildren: () => import('../modules/user-dashboard/user-dashboard.module').then(m => m.UserDashboardModule)}
 ];
 
 @NgModule({

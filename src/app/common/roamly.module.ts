@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OnboardingModule } from '../modules/onboarding/onboarding.module';
 import { AlertMsgComponent } from './components/alert-msg/alert-msg.component';
 import { SharedModule } from '../shared/shared.module';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,7 @@ import { SharedModule } from '../shared/shared.module';
     FooterComponent,
     SearchModalComponent,
     AuthDialogComponent,
+    SearchResultsComponent
   ],
   imports: [
     CommonModule,
@@ -23,13 +26,15 @@ import { SharedModule } from '../shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    OnboardingModule
+    OnboardingModule,
+    RouterModule
   ],
   exports:[
     HeaderComponent,
     FooterComponent,
     SearchModalComponent,
-    AuthDialogComponent
+    AuthDialogComponent,
+    SearchResultsComponent
   ]
 })
 export class RoamlyModule { }
